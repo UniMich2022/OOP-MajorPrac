@@ -73,14 +73,15 @@ void Cupcake::addDecorations() {
   }
   cout << "Do you want to add some toppings for $1? [Y] Yes [N] No: ";
   cin >> top;
-
+  if (top == 'n') {
+    return;
+  }
   // Validation loop
-  while (cin.fail() || (frosting != 'Y' && frosting != 'y' && frosting != 'N' &&
-                        frosting != 'n')) {
+  while (cin.fail() || (top != 'Y' && top != 'y' && top != 'N' && top != 'n')) {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "\n\t\tInvalid input, please enter [Y] or [N]: ";
-    cin >> frosting;
+    cin >> top;
   }
   cin.ignore(numeric_limits<streamsize>::max(), '\n');  // clears buffer
 
@@ -97,20 +98,24 @@ void Cupcake::addDecorations() {
         cin >> top;
 
         // Validation loop
-        while (cin.fail() || (frosting != 'Y' && frosting != 'y' &&
-                              frosting != 'N' && frosting != 'n')) {
+        while (cin.fail() ||
+               (top != 'Y' && top != 'y' && top != 'N' && top != 'n')) {
           cin.clear();
           cin.ignore(numeric_limits<streamsize>::max(), '\n');
           cout << "\n\t\tInvalid input, please enter [Y] or [N]: ";
-          cin >> frosting;
+          cin >> top;
         }
         break;
       default:
         top = 'N';
         break;
     }
+    loop++;
+  }
+  if (loop == 4) {
+    cout << "\nSorry you can only add a maximum of 4 serves of toppings."
+         << endl;
   }
   *theDeco = Deco;  // Store in the pointer so it is not lost
-  loop++;
 }
 Cupcake::~Cupcake() {}
