@@ -4,7 +4,7 @@
 
 class TriangleCupcake : public Shape {
  public:
-  double getArea();   // Calculates and returns area of triangle
-  TriangleCupcake();  // Constructor
+  double getArea();
+  TriangleCupcake();
 };
 #endif

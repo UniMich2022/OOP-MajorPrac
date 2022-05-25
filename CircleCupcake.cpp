@@ -9,16 +9,16 @@ double CircleCupcake::getArea() {
   double area;
   cout << "\n\t\tEnter the radius of your circle cupcake:";
   cin >> x;
-  // Validity test
-  while (cin.fail()) {
-    cin.clear();  // Clear input
+  while (cin.fail() || x < 1) {
+    cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cout << "Invalid input, enter enter a number: ";
+    cout << "\n\t\tInvalid input, please enter a number greater than or equal "
+            "to 1: ";
     cin >> x;
   }
   area = 3.14 * x * x;
-  cout << setprecision(2) << fixed;  // Displays to 2 decimal points
-  cout << "\t\tThe size area of your circle cupcake is " << area << endl;
+  cout << setprecision(2) << fixed;
+  cout << "\t\tThe size area of your square cupcake is ";
 
   return area;
 }

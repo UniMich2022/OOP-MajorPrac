@@ -3,9 +3,9 @@
 
 #include "Shape.h"
 
-class CircleCupcake : public Shape {
- public:
-  double getArea();  // Calculates and returns area of circle
-  CircleCupcake();   // Default constructor
+class CircleCupcake: public Shape{
+    public:
+    double getArea();
+    CircleCupcake();
 };
 #endif

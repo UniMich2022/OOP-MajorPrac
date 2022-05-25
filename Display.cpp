@@ -2,11 +2,13 @@
 
 #include <unistd.h>  //for sleep function
 
+#include <iostream>
 #include <limits>  // for clearing line in validity checks
 
 #include "CircleCupcake.h"
 #include "Cupcake.h"
 #include "Customer.h"
+#include "Decorations.h"
 #include "Order.h"
 #include "Shape.h"
 #include "SquareCupcake.h"
@@ -14,6 +16,7 @@
 
 void Display::loading() {
   // This is for the Title
+  system("clear");  // Clear Screen
   usleep(100);
   cout << "                                                          " << endl;
   cout << "░█████╗░██╗░░░██╗██████╗░░█████╗░░█████╗░██╗░░██╗███████╗ " << endl;
@@ -55,17 +58,69 @@ void Display::loading() {
 }
 
 void Display::display(void) {
-  char choice;         // Determines shape of cupcake
-  int orderAgain = 1;  // Controls the order loop
+  char choice;          // Determines shape of cupcake
+  char orderAgain = 1;  // Controls the order loop
   loading();
 
-  while (orderAgain != 0) {
+  while (orderAgain != '0') {
     A.createOrder(B);
-    int type = 1;  // Controls the Cupcake loop
+    char type = 1;  // Controls the Cupcake loop
 
     // WHILE CHOICE IS NOT 0, CONTINUE TO RUN
-    while (type != 0) {
+    while (type != '0') {
       system("clear");  // Clear Screen
+      cout << "\t\t "
+           << "                   ¶¶¶¶¶¶                  " << endl;
+      cout << "\t\t "
+           << "                 ¶¶¶¶¶  ¶¶                 " << endl;
+      cout << "\t\t "
+           << "                ¶¶¶¶¶¶¶   ¶                " << endl;
+      cout << "\t\t "
+           << "               ¶¶¶¶¶¶¶¶¶¶¶¶¶               " << endl;
+      cout << "\t\t "
+           << "           ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶           " << endl;
+      cout << "\t\t "
+           << "        ¶¶¶¶¶   ¶¶¶¶¶¶¶¶¶¶¶    ¶¶¶¶¶       " << endl;
+      cout << "\t\t "
+           << "     ¶¶¶¶         ¶¶¶¶¶¶¶          ¶¶¶     " << endl;
+      cout << "\t\t "
+           << "    ¶¶¶      ¶                    ¶  ¶¶¶   " << endl;
+      cout << "\t\t "
+           << "   ¶¶        ¶¶  ¶¶     ¶¶  ¶¶¶        ¶¶  " << endl;
+      cout << "\t\t "
+           << "  ¶¶               ¶¶  ¶¶     ¶¶¶       ¶¶ " << endl;
+      cout << "\t\t "
+           << " ¶¶                                        " << endl;
+      cout << "\t\t "
+           << "¶¶                                        ¶" << endl;
+      cout << "\t\t "
+           << "¶¶                                        ¶" << endl;
+      cout << "\t\t "
+           << " ¶¶¶                                    ¶¶ " << endl;
+      cout << "\t\t "
+           << "   ¶¶¶¶¶                            ¶¶¶¶¶  " << endl;
+      cout << "\t\t "
+           << "    ¶¶ ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶   " << endl;
+      cout << "\t\t "
+           << "     ¶____¶_____¶____¶¶____¶_____¶¶___¶¶   " << endl;
+      cout << "\t\t "
+           << "     ¶____¶¶____¶____¶¶____¶_____¶____¶    " << endl;
+      cout << "\t\t "
+           << "     ¶¶____¶____¶¶___¶¶___¶¶____¶¶___¶¶    " << endl;
+      cout << "\t\t "
+           << "      ¶____¶¶___¶¶___¶¶___¶¶____¶____¶     " << endl;
+      cout << "\t\t "
+           << "      ¶¶____¶___¶¶___¶¶___¶¶___¶¶___¶¶     " << endl;
+      cout << "\t\t "
+           << "       ¶____¶¶___¶___¶¶___¶____¶¶___¶      " << endl;
+      cout << "\t\t "
+           << "       ¶¶___¶¶___¶___¶¶___¶____¶___¶¶      " << endl;
+      cout << "\t\t "
+           << "        ¶____¶¶__¶¶__¶¶__¶¶___¶¶___¶       " << endl;
+      cout << "\t\t "
+           << "        ¶¶____¶___¶__¶¶__¶___¶¶__¶¶        " << endl;
+      cout << "\t\t "
+           << "         ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶        " << endl;
       cout << "\t\t\t Choose your cupcake shape! \t";
       cout << "\n\t\t==========================================\n";
       cout << "\t\t [S] Square \t[T] Triangle \t[C] Circle \n\n\t\t\tChoose: ";
@@ -86,8 +141,104 @@ void Display::display(void) {
         case 's': {
           Cupcake sq('s');
           sq.getArea();  // Ask and calculate are of cupcake
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          cout << "\n\t\t"
+               << "                          ██████                        "
+               << endl;
+          cout << "\t\t"
+               << "                      ▓▓▓▓      ▓▓░░                    "
+               << endl;
+          cout << "\t\t"
+               << "                  ░░░░              ▓▓▓▓                "
+               << endl;
+          cout << "\t\t"
+               << "              ████                      ████            "
+               << endl;
+          cout << "\t\t"
+               << "          ████                              ████        "
+               << endl;
+          cout << "\t\t"
+               << "      ████                                      ████    "
+               << endl;
+          cout << "\t\t"
+               << "  ████                                              ████"
+               << endl;
+          cout << "\t\t"
+               << "  ██  ████                                      ████  ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██      ▓▓▓▓                              ▓▓▓▓      ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██          ▓▓▓▓                      ▓▓▓▓          ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██              ▓▓▒▒              ▓▓▓▓              ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██                  ▓▓▓▓      ▓▓▒▒                  ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██                      ██████                      ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██                        ▓▓                        ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██                        ▓▓                        ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██                        ▓▓                        ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██                        ▓▓                        ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██                        ▓▓                        ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██                      ▓▓▓▓▓▓                      ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██                  ▓▓▓▓  ▓▓  ▓▓▒▒                  ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██              ▓▓▒▒      ▓▓      ▓▓▓▓              ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██          ▓▓▓▓          ▓▓          ▓▓▓▓          ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██      ▒▒▒▒░░░░          ▓▓            ░░▒▒▒▒      ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ██  ▒▒▒▒░░░░              ▓▓              ░░░░▒▒▒▒  ▓▓"
+               << endl;
+          cout << "\t\t"
+               << "  ████                      ▓▓                      ██▓▓"
+               << endl;
+          cout << "\t\t"
+               << "      ████                  ▓▓                  ████    "
+               << endl;
+          cout << "\t\t"
+               << "          ▓▓▓▓              ▓▓              ▓▓▓▓        "
+               << endl;
+          cout << "\t\t"
+               << "              ▓▓▓▓          ▓▓          ▓▓▓▓            "
+               << endl;
+          cout << "\t\t"
+               << "                  ▓▓▓▓      ▓▓      ▓▓▓▓                "
+               << endl;
+          cout << "\t\t"
+               << "                      ▓▓▓▓  ▓▓  ▓▓▓▓                    "
+               << endl;
+          cout << "\t\t"
+               << "                          ▓▓▓▓▓▓                        "
+               << endl;
           cout << "\t\tThe cost of your square cupcake is $" << sq.getCost()
                << endl;
+          sq.addDecorations();  // asks if frosting or toppings are needed
+          cout << "\t\tThe cost of your cupcake is $" << sq.getCost() << endl;
           A.getOrder()->addCupcake(sq);  // Add cupcake to order
           break;
         }
@@ -95,8 +246,59 @@ void Display::display(void) {
         case 't': {
           Cupcake t('t');
           t.getArea();
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          cout << "\n\t\t"
+               << "                                                     "
+               << endl;
+          cout << "\t\t"
+               << "                              ▓▓                     "
+               << endl;
+          cout << "\t\t"
+               << "                              ██                     "
+               << endl;
+          cout << "\t\t"
+               << "                            ██████                   "
+               << endl;
+          cout << "\t\t"
+               << "                          ▒▒██████▒▒                 "
+               << endl;
+          cout << "\t\t"
+               << "                          ██████████                 "
+               << endl;
+          cout << "\t\t"
+               << "                        ▓▓██████████▓▓               "
+               << endl;
+          cout << "\t\t"
+               << "                        ██████████████               "
+               << endl;
+          cout << "\t\t"
+               << "                      ██████████████████             "
+               << endl;
+          cout << "\t\t"
+               << "                      ██████████████████             "
+               << endl;
+          cout << "\t\t"
+               << "                    ██████████████████████           "
+               << endl;
+          cout << "\t\t"
+               << "                  ▒▒██████████████████████▒▒         "
+               << endl;
+          cout << "\t\t"
+               << "                  ██████████████████████████         "
+               << endl;
+          cout << "\t\t"
+               << "                ▓▓██████████████████████████▓▓       "
+               << endl;
+          cout << "\t\t"
+               << "                ██████████████████████████████       "
+               << endl;
+          cout << "\t\t"
+               << "              ██████████████████████████████████     "
+               << endl;
           cout << "\t\tThe cost of your triangle cupcake is $" << t.getCost()
                << endl;
+          t.addDecorations();  // asks if frosting or toppings are needed
+          cout << "\t\tThe cost of your cupcake is $" << t.getCost() << endl;
           A.getOrder()->addCupcake(t);
           break;
         }
@@ -104,8 +306,127 @@ void Display::display(void) {
         case 'c': {
           Cupcake c('c');
           c.getArea();
-          cout << "\t\tThe cost of your cirlce cupcake is $" << c.getCost()
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          cout
+              << "\n\t\t"
+              << "                          ████████████                       "
+              << endl;
+          cout << "\t\t"
+               << "                    ██████░░░░░░░░░░░░██████                "
+                  "  "
                << endl;
+          cout << "\t\t"
+               << "                ████░░░░░░░░░░░░░░░░░░░░░░░░████            "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "            ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██            "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "          ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██       "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "        ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒░░██      "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "      ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒░░██    "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "      ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒░░██    "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "    "
+                  "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒░░██  "
+               << endl;
+          cout << "\t\t"
+               << "    "
+                  "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒░░██  "
+               << endl;
+          cout << "\t\t"
+               << "    "
+                  "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒░░██  "
+               << endl;
+          cout << "\t\t"
+               << "  "
+                  "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒░░██"
+               << endl;
+          cout << "\t\t"
+               << "░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒░░"
+                  "██"
+               << endl;
+          cout << "\t\t"
+               << "░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒░░"
+                  "██"
+               << endl;
+          cout << "\t\t"
+               << "░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒░░"
+                  "██"
+               << endl;
+          cout << "\t\t"
+               << "░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒░░"
+                  "██"
+               << endl;
+          cout << "\t\t"
+               << "░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒░░"
+                  "██"
+               << endl;
+          cout << "\t\t"
+               << "    "
+                  "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒░░██  "
+               << endl;
+          cout << "\t\t"
+               << "    "
+                  "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░██  "
+               << endl;
+          cout << "\t\t"
+               << "    "
+                  "██░░▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██  "
+               << endl;
+          cout << "\t\t"
+               << "      ██░░▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██  "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "      ██░░▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██  "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "        ██░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██    "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "          ██░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██      "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "            ██░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██        "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "              ██░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░██          "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "                ████░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░████            "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "                    ██████░░░░░░░░░░░░██████                "
+                  "  "
+               << endl;
+          cout << "\t\t"
+               << "                          ████████████                      "
+                  "  "
+               << endl;
+          cout << "\t\tThe cost of your circle cupcake is $" << c.getCost()
+               << endl;
+          c.addDecorations();  // asks if frosting or toppings are needed
+          cout << "\t\tThe cost of your cupcake is $" << c.getCost() << endl;
           A.getOrder()->addCupcake(c);
           break;
         }
@@ -113,20 +434,28 @@ void Display::display(void) {
           break;
       }
 
-      cin.clear();  // Clear user input line, prepare for more user input
+      // Clear user input line, prepare for more user input
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-      cout << "\n\t\tDo you want to add another cupcake?\n\t\tYes [Enter any "
-              "input]  No [Enter 0]:";
+      cout << "\n\t\tDo you want to add another cupcake?\n\t\tYes [Enter "
+              "1]  No [Enter 0]:";
       cin >> type;  // Any value other than 0 will end loop
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
+
     A.getOrder()->payment();  // Proceed to payment or cancel order
     cin.clear();  // Clear user input line, prepare for more user input
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    cout << "\n\t\tDo you want to order again?\n\t\tYes [Enter any input]  No "
+    cout << "\n\t\tDo you want to order again?\n\t\tYes [Enter 1]  No "
             "[Enter 0]:";
     cin >> orderAgain;  // Any value other than 0 will end loop
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
   }
-  cout << "\n\t\tThank you for using the Cupcake Designer Kiosk!\n";
+  cout << "\n\t\t"
+       << ".▀█▀.█▄█.█▀█.█▄.█.█▄▀　█▄█.█▀█.█─█" << endl;
+  cout << "\t\t"
+       << "─.█.─█▀█.█▀█.█.▀█.█▀▄　─█.─█▄█.█▄█" << endl;
+  cout << "\n\t\t"
+       << "for using the Cupcake Designer Kiosk!\n";
 }

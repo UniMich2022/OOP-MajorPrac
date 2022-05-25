@@ -1,6 +1,10 @@
+
 #include "Cupcake.h"
 
+#include <limits>
+
 #include "CircleCupcake.h"
+#include "Decorations.h"
 #include "SquareCupcake.h"
 #include "TriangleCupcake.h"
 
@@ -25,6 +29,7 @@ Cupcake::Cupcake(char cup) {
       break;
     }
   }
+  theDeco = new Decorations[1];
 }
 
 Cupcake::Cupcake() : Cupcake('s') {}  // Default is a square cupcake
@@ -37,7 +42,75 @@ double Cupcake::getArea() {
 
 double Cupcake::getCost() { return cost; }
 
-Cupcake::~Cupcake() {
-  // delete[] theShape;
-  // cout << "delete Cupcake\n";
+Decorations* Cupcake::getDeco() { return theDeco; }
+
+void Cupcake::addDecorations() {
+  Decorations Deco;
+  char frosting;
+  char top;
+
+  cout << "Do you want to add some frosting for $1? [Y] Yes [N] No: ";
+  cin >> frosting;
+
+  // Validation loop
+  while (cin.fail() || (frosting != 'Y' && frosting != 'y' && frosting != 'N' &&
+                        frosting != 'n')) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "\n\t\tInvalid input, please enter [Y] or [N]: ";
+    cin >> frosting;
+  }
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');  // clears buffer
+
+  switch (frosting) {
+    case 'Y':
+    case 'y':
+      Deco.AddFrosting();  // If yes to frosting, add frosting and increase cost
+      cost++;
+      break;
+    default:
+      break;
+  }
+  cout << "Do you want to add some toppings for $1? [Y] Yes [N] No: ";
+  cin >> top;
+
+  // Validation loop
+  while (cin.fail() || (frosting != 'Y' && frosting != 'y' && frosting != 'N' &&
+                        frosting != 'n')) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "\n\t\tInvalid input, please enter [Y] or [N]: ";
+    cin >> frosting;
+  }
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');  // clears buffer
+
+  // WHILE THE ANSWER IS NOT NO, CONTINUE LOOP 4 TIMES
+  int loop = 0;  // Counts how many loops
+  while (top != 'N' && top != 'n' && loop < 4) {
+    switch (top) {
+      case 'Y':
+      case 'y':
+        Deco.AddToppings();  // If yes to toppings, add toppings and increase
+                             // cost
+        cost++;
+        cout << "Do you want to add more toppings for $1? [Y] Yes [N] No: ";
+        cin >> top;
+
+        // Validation loop
+        while (cin.fail() || (frosting != 'Y' && frosting != 'y' &&
+                              frosting != 'N' && frosting != 'n')) {
+          cin.clear();
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          cout << "\n\t\tInvalid input, please enter [Y] or [N]: ";
+          cin >> frosting;
+        }
+        break;
+      default:
+        top = 'N';
+        break;
+    }
+  }
+  *theDeco = Deco;  // Store in the pointer so it is not lost
+  loop++;
 }
+Cupcake::~Cupcake() {}

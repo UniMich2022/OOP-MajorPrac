@@ -9,14 +9,15 @@ double SquareCupcake::getArea() {
   double area;
   cout << "\n\t\tEnter side size of your square cupcake:";
   cin >> x;
-  while (cin.fail()) {
-    cin.clear();  // Clear input
+  while (cin.fail() || x < 1) {
+    cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cout << "Invalid input, enter enter a number: ";
+    cout << "\n\t\tInvalid input, please enter a number greater than or equal "
+            "to 1.";
     cin >> x;
   }
   area = x * x;
-  cout << setprecision(2) << fixed;  // Set to 2 decimal places
+  cout << setprecision(2) << fixed;
   cout << "\n\t\tThe area of your square cupcake is " << area << endl;
 
   return area;

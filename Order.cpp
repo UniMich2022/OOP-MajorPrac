@@ -7,7 +7,7 @@ using namespace std;
 
 double Order::getTotalCost() { return totalCost; }
 Cupcake* Order::getCupcake() { return theCupcake; }
-
+// Decoration* getDeco() { return theDeco; }
 void Order::payment() {
   char pay;
   cout << "\n\t\t=====================================";
@@ -16,8 +16,6 @@ void Order::payment() {
   // Print to 2 decimal places
   cout << "\n\t\tThe cost is $" << totalCost << endl;
 
-  cin.clear();  // Clear input
-  cin.ignore(numeric_limits<streamsize>::max(), '\n');
   cout << "\n\t\tType [P] to pay or [X] to cancel" << endl;
   cin >> pay;
 
@@ -35,10 +33,10 @@ void Order::payment() {
       break;
     case 'X':
     case 'x':
-      clearCart();  // Clears cupcake pointer
       cout << "\n\t\tOrder has been cancelled!" << endl;
       break;
   }
+  clearCart();  // Clears cupcake pointer
 }
 Order::Order() {
   totalCost = 0;
@@ -55,10 +53,7 @@ void Order::addCupcake(Cupcake cup) {
     cout << "Your cart is full!" << endl;
   }
 }
-Order::~Order() {
-  //   delete[] theCupcake;
-  //   cout << "delete Order\n";
-}
+Order::~Order() {}
 
 void Order::clearCart() {
   numCupcake = 0;

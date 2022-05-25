@@ -5,7 +5,7 @@
 
 class SquareCupcake : public Shape {
  public:
-  double getArea();  // Calculates and returns area of square
-  SquareCupcake();   // Constructor
+  double getArea();
+  SquareCupcake();
 };
 #endif
