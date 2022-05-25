@@ -246,7 +246,6 @@ void Display::display(void) {
         case 't': {
           Cupcake t('t');
           t.getArea();
-          cin.ignore(numeric_limits<streamsize>::max(), '\n');
           cout << "\n\t\t"
                << "                                                     "
                << endl;
@@ -438,7 +437,7 @@ void Display::display(void) {
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
       cout << "\n\t\tDo you want to add another cupcake?\n\t\tYes [Enter "
-              "1]  No [Enter 0]:";
+              "any character other than 0]  No [Enter 0]:";
       cin >> type;  // Any value other than 0 will end loop
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
@@ -447,7 +446,9 @@ void Display::display(void) {
     cin.clear();  // Clear user input line, prepare for more user input
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    cout << "\n\t\tDo you want to order again?\n\t\tYes [Enter 1]  No "
+    cout << "\n\t\tDo you want to order again?\n\t\tYes [Enter any character "
+            "other than 0]  "
+            "No "
             "[Enter 0]:";
     cin >> orderAgain;  // Any value other than 0 will end loop
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
